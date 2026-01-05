@@ -15,6 +15,7 @@ st.set_page_config(
     layout="wide",
     initial_sidebar_state="expanded"
 )
+
 st.markdown(
     """
     <style>
@@ -206,6 +207,7 @@ st.markdown(
     "<div class='footer'>This tool is for educational purposes only and not a medical diagnosis.</div>",
     unsafe_allow_html=True
 )
+
 
 
 
