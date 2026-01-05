@@ -15,6 +15,24 @@ st.set_page_config(
     layout="wide",
     initial_sidebar_state="expanded"
 )
+st.markdown(
+    """
+    <style>
+    /* MAIN CONTENT AREA (RIGHT SIDE) */
+    section.main > div {
+        background-image:
+        linear-gradient(rgba(255,255,255,0.90), rgba(255,255,255,0.90)),
+        url("https://cdn.pixabay.com/photo/2017/01/31/13/14/anatomy-2020090_1280.png");
+        background-repeat: no-repeat;
+        background-position: right center;
+        background-size: 420px;
+    }
+
+    /* Sidebar untouched */
+    </style>
+    """,
+    unsafe_allow_html=True
+)
 
 # ------------------------------------------------------
 # BACKGROUND IMAGE + OVERLAY (PROFESSIONAL)
@@ -128,37 +146,40 @@ st.markdown(
 # ------------------------------------------------------
 col1, col2 = st.columns(2)
 
+label_style = "color:#1f4fd8; font-weight:600; margin-bottom:4px;"
+
 with col1:
-    st.markdown("**Age**")
+    st.markdown(f"<div style='{label_style}'>Age</div>", unsafe_allow_html=True)
     age = st.number_input("", 1, 100, 30, label_visibility="collapsed")
 
-    st.markdown("**Albumin**")
+    st.markdown(f"<div style='{label_style}'>Albumin</div>", unsafe_allow_html=True)
     albumin = st.number_input("", 0.0, 100.0, 45.0, label_visibility="collapsed")
 
-    st.markdown("**Alkaline Phosphatase**")
+    st.markdown(f"<div style='{label_style}'>Alkaline Phosphatase</div>", unsafe_allow_html=True)
     alkaline_phosphatase = st.number_input("", 0.0, 500.0, 200.0, label_visibility="collapsed")
 
-    st.markdown("**ALT (SGPT)**")
+    st.markdown(f"<div style='{label_style}'>ALT (SGPT)</div>", unsafe_allow_html=True)
     alt = st.number_input("", 0.0, 400.0, 30.0, label_visibility="collapsed")
 
-    st.markdown("**AST (SGOT)**")
+    st.markdown(f"<div style='{label_style}'>AST (SGOT)</div>", unsafe_allow_html=True)
     ast = st.number_input("", 0.0, 400.0, 40.0, label_visibility="collapsed")
 
 with col2:
-    st.markdown("**Bilirubin**")
+    st.markdown(f"<div style='{label_style}'>Bilirubin</div>", unsafe_allow_html=True)
     bilirubin = st.number_input("", 0.0, 300.0, 1.0, label_visibility="collapsed")
 
-    st.markdown("**Cholinesterase**")
+    st.markdown(f"<div style='{label_style}'>Cholinesterase</div>", unsafe_allow_html=True)
     cholinesterase = st.number_input("", 0.0, 20.0, 8.0, label_visibility="collapsed")
 
-    st.markdown("**Cholesterol**")
+    st.markdown(f"<div style='{label_style}'>Cholesterol</div>", unsafe_allow_html=True)
     cholesterol = st.number_input("", 0.0, 15.0, 4.5, label_visibility="collapsed")
 
-    st.markdown("**Creatinine**")
+    st.markdown(f"<div style='{label_style}'>Creatinine</div>", unsafe_allow_html=True)
     creatinine = st.number_input("", 0.0, 1200.0, 90.0, label_visibility="collapsed")
 
-    st.markdown("**Gamma GT**")
+    st.markdown(f"<div style='{label_style}'>Gamma GT</div>", unsafe_allow_html=True)
     gamma_gt = st.number_input("", 0.0, 700.0, 35.0, label_visibility="collapsed")
+
 
 
 # ------------------------------------------------------
@@ -185,5 +206,6 @@ st.markdown(
     "<div class='footer'>This tool is for educational purposes only and not a medical diagnosis.</div>",
     unsafe_allow_html=True
 )
+
 
 
