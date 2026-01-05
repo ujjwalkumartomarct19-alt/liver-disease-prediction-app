@@ -117,7 +117,11 @@ st.sidebar.write("Made with ❤️ by **Ujjwal Tomar**")
 # MAIN TITLE
 # ------------------------------------------------------
 st.markdown("<div class='main-title'>Liver Disease Stage Prediction</div>", unsafe_allow_html=True)
-st.write("### Enter patient test values below:")
+st.markdown(
+    "<h3 style='color:#2c3e50; font-weight:600;'>Enter patient test values below:</h3>",
+    unsafe_allow_html=True
+)
+
 
 # ------------------------------------------------------
 # INPUT FIELDS
@@ -125,18 +129,37 @@ st.write("### Enter patient test values below:")
 col1, col2 = st.columns(2)
 
 with col1:
-    age = st.number_input("Age", 1, 100, 30)
-    albumin = st.number_input("Albumin", 0.0, 100.0, 45.0)
-    alkaline_phosphatase = st.number_input("Alkaline Phosphatase", 0.0, 500.0, 200.0)
-    alt = st.number_input("ALT (SGPT)", 0.0, 400.0, 30.0)
-    ast = st.number_input("AST (SGOT)", 0.0, 400.0, 40.0)
+    st.markdown("**Age**")
+    age = st.number_input("", 1, 100, 30, label_visibility="collapsed")
+
+    st.markdown("**Albumin**")
+    albumin = st.number_input("", 0.0, 100.0, 45.0, label_visibility="collapsed")
+
+    st.markdown("**Alkaline Phosphatase**")
+    alkaline_phosphatase = st.number_input("", 0.0, 500.0, 200.0, label_visibility="collapsed")
+
+    st.markdown("**ALT (SGPT)**")
+    alt = st.number_input("", 0.0, 400.0, 30.0, label_visibility="collapsed")
+
+    st.markdown("**AST (SGOT)**")
+    ast = st.number_input("", 0.0, 400.0, 40.0, label_visibility="collapsed")
 
 with col2:
-    bilirubin = st.number_input("Bilirubin", 0.0, 300.0, 1.0)
-    cholinesterase = st.number_input("Cholinesterase", 0.0, 20.0, 8.0)
-    cholesterol = st.number_input("Cholesterol", 0.0, 15.0, 4.5)
-    creatinine = st.number_input("Creatinine", 0.0, 1200.0, 90.0)
-    gamma_gt = st.number_input("Gamma GT", 0.0, 700.0, 35.0)
+    st.markdown("**Bilirubin**")
+    bilirubin = st.number_input("", 0.0, 300.0, 1.0, label_visibility="collapsed")
+
+    st.markdown("**Cholinesterase**")
+    cholinesterase = st.number_input("", 0.0, 20.0, 8.0, label_visibility="collapsed")
+
+    st.markdown("**Cholesterol**")
+    cholesterol = st.number_input("", 0.0, 15.0, 4.5, label_visibility="collapsed")
+
+    st.markdown("**Creatinine**")
+    creatinine = st.number_input("", 0.0, 1200.0, 90.0, label_visibility="collapsed")
+
+    st.markdown("**Gamma GT**")
+    gamma_gt = st.number_input("", 0.0, 700.0, 35.0, label_visibility="collapsed")
+
 
 # ------------------------------------------------------
 # PREDICTION
@@ -162,4 +185,5 @@ st.markdown(
     "<div class='footer'>This tool is for educational purposes only and not a medical diagnosis.</div>",
     unsafe_allow_html=True
 )
+
 
