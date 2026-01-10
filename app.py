@@ -186,12 +186,29 @@ with col2:
 # ------------------------------------------------------
 # PREDICTION
 # ------------------------------------------------------
-if st.button("🔍 Predict Liver Disease Stage"):
-    input_data = np.array([[age, albumin, alkaline_phosphatase, alt, ast,
-                            bilirubin, cholinesterase, cholesterol,
-                            creatinine, gamma_gt]])
+import pandas as pd
 
-    input_scaled = scaler.transform(input_data)
+if st.button("🔍 Predict Liver Disease Stage"):
+
+    # Create DataFrame with feature names
+    input_df = pd.DataFrame([{
+        "Age": age,
+        "Albumin": albumin,
+        "Alkaline Phosphatase": alkaline_phosphatase,
+        "ALT": alt,
+        "AST": ast,
+        "Bilirubin": bilirubin,
+        "Cholinesterase": cholinesterase,
+        "Cholesterol": cholesterol,
+        "Creatinine": creatinine,
+        "Gamma GT": gamma_gt
+    }])
+
+    # Align EXACT feature order used during training
+    input_df = input_df[scaler.feature_names_in_]
+
+    # Scale and predict
+    input_scaled = scaler.transform(input_df)
     prediction = model.predict(input_scaled)
     stage = label_encoder.inverse_transform(prediction)[0]
 
@@ -200,6 +217,7 @@ if st.button("🔍 Predict Liver Disease Stage"):
         unsafe_allow_html=True
     )
 
+
 # ------------------------------------------------------
 # FOOTER
 # ------------------------------------------------------
@@ -207,6 +225,7 @@ st.markdown(
     "<div class='footer'>This tool is for educational purposes only and not a medical diagnosis.</div>",
     unsafe_allow_html=True
 )
+
 
 
 
