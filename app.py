@@ -99,6 +99,8 @@ def load_artifacts():
     return model, scaler, label_encoder
 
 model, scaler, label_encoder = load_artifacts()
+st.write("Scaler expects these features:", scaler.feature_names_in_)
+
 
 # ------------------------------------------------------
 # SIDEBAR
@@ -225,6 +227,7 @@ st.markdown(
     "<div class='footer'>This tool is for educational purposes only and not a medical diagnosis.</div>",
     unsafe_allow_html=True
 )
+
 
 
 
