@@ -154,7 +154,11 @@ label_style = "color:#1f4fd8; font-weight:600; margin-bottom:4px;"
 with col1:
     st.markdown(f"<div style='{label_style}'>Age</div>", unsafe_allow_html=True)
     age = st.number_input("", 1, 100, 30, label_visibility="collapsed")
-
+    
+    st.markdown(f"<div style='{label_style}'>Sex</div>", unsafe_allow_html=True)
+    sex = st.selectbox("", ["Male", "Female"], label_visibility="collapsed")
+    sex_encoded = 1 if sex == "Male" else 0
+   
     st.markdown(f"<div style='{label_style}'>Albumin</div>", unsafe_allow_html=True)
     albumin = st.number_input("", 0.0, 100.0, 45.0, label_visibility="collapsed")
 
@@ -195,6 +199,7 @@ if st.button("🔍 Predict Liver Disease Stage"):
     # Create DataFrame with feature names
     input_df = pd.DataFrame([{
         "Age": age,
+        "Sex": sex_encoded,
         "Albumin": albumin,
         "Alkaline Phosphatase": alkaline_phosphatase,
         "ALT": alt,
@@ -227,6 +232,7 @@ st.markdown(
     "<div class='footer'>This tool is for educational purposes only and not a medical diagnosis.</div>",
     unsafe_allow_html=True
 )
+
 
 
 
