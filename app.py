@@ -213,15 +213,12 @@ if st.button("🔍 Predict Liver Disease Stage"):
 
     # Align EXACT feature order used during training
     # ---- SAFE FEATURE ALIGNMENT (NO KeyError) ----
-expected_features = list(scaler.feature_names_in_)
-
-# Rename columns if needed (safety net)
-input_df.columns = [c.lower() for c in input_df.columns]
-
-# Reindex ensures correct order + fills missing with 0
-input_df = input_df.reindex(columns=expected_features, fill_value=0)
-
-
+    # ---- SAFE FEATURE ALIGNMENT (NO KeyError) ----
+    expected_features = list(scaler.feature_names_in_)
+    # Rename columns if needed (safety net)
+    input_df.columns = [c.lower() for c in input_df.columns]
+    # Reindex ensures correct order + fills missing with 0
+    input_df = input_df.reindex(columns=expected_features, fill_value=0)
     # Scale and predict
     input_scaled = scaler.transform(input_df)
     prediction = model.predict(input_scaled)
@@ -240,6 +237,7 @@ st.markdown(
     "<div class='footer'>This tool is for educational purposes only and not a medical diagnosis.</div>",
     unsafe_allow_html=True
 )
+
 
 
 
