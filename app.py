@@ -225,9 +225,14 @@ if st.button("🔍 Predict Liver Disease Stage"):
     stage = label_encoder.inverse_transform(prediction)[0]
 
     st.markdown(
-        f"<div class='prediction-box'>🧾 Predicted Stage: <b>{stage}</b></div>",
-        unsafe_allow_html=True
+    f"""
+    <div class='prediction-box' style='color:#000000;'>
+        🧾 Predicted Stage: <b>{stage}</b>
+    </div>
+    """,
+    unsafe_allow_html=True
     )
+
 
 
 # ------------------------------------------------------
@@ -237,6 +242,7 @@ st.markdown(
     "<div class='footer'>This tool is for educational purposes only and not a medical diagnosis.</div>",
     unsafe_allow_html=True
 )
+
 
 
 
